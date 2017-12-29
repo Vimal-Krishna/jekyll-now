@@ -10,7 +10,7 @@ The instructions at the [genivia website](https://www.genivia.com/doc/apache/htm
 
 If you are not familiar with how to write a module for Apache, this [blog post](http://theunixtips.com/howto-develop-apache-module-in-c/) will get you started on it. It takes you through the steps of creating a C module and then a C++ module.
 
-The instructions provided by www.genivia.com, ask us to run the following command to build the gSoap module for Apache:  
+The instructions provided by [www.genivia.com](https://www.genivia.com/doc/apache/html/index.html), ask us to run the following command to build the gSoap module for Apache:  
 bin/apxs -a -c -S CC=c++ calcserver.cpp soapC.cpp soapcalcService.cpp stdsoap2.cpp
 chmod 755 .lib/calcserver.so
 
