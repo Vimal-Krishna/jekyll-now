@@ -6,7 +6,7 @@ published: true
 
 ## Installing a gSoap C++ module in Apache server
 
-The instructions at the [genivia website](https://www.genivia.com/doc/apache/html/index.html) just did not work.
+The instructions at the [genivia website](https://www.genivia.com/doc/apache/html/index.html) just did not work while trying to install gSoap as a C++ module.
 
 If you are not familiar with how to write a module for Apache, this [blog post](http://theunixtips.com/howto-develop-apache-module-in-c/) will get you started on it. It takes you through the steps of creating a C module and then a C++ module.
 
