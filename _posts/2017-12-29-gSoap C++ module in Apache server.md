@@ -11,8 +11,10 @@ The instructions at the [genivia website](https://www.genivia.com/doc/apache/htm
 If you are not familiar with how to write a module for Apache, this [blog post](http://theunixtips.com/howto-develop-apache-module-in-c/) will get you started on it. It takes you through the steps of creating a C module and then a C++ module.
 
 The instructions provided by [www.genivia.com](https://www.genivia.com/doc/apache/html/index.html), ask us to run the following command to build the gSoap module for Apache:  
+```bash
 bin/apxs -a -c -S CC=c++ calcserver.cpp soapC.cpp soapcalcService.cpp stdsoap2.cpp
 chmod 755 .lib/calcserver.so
+```
 
 There are no errors whatsoever, so it seems like the command worked and all is well.  
 However, when trying to make a soap API call to the installed service, Apache throws the following error:  
@@ -32,7 +34,8 @@ After this, running the nm -C -D command on the new DSO generated output which i
 //image
 
 To load the module in Apache, the following lines were added in the httpd.conf file:
-LoadModule gsoap_module       modules/mod_gsoap.so
+````XML
+LoadModule gsoap_module modules/mod_gsoap.so
 <IfModule mod_gsoap.c>
  <Location /soap>
   SetHandler gsoap_handler
@@ -41,5 +44,5 @@ LoadModule gsoap_module       modules/mod_gsoap.so
   Allow from all
  </Location>
 </IfModule>
-  
+````  
 -Vimal Krishna  
