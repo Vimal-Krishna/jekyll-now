@@ -41,7 +41,7 @@ g++ -shared -fpic calcserver.cpp soapC.cpp soapcalcService.cpp $HOME/gsoap-2.8/g
 
 After this, running the ````nm -C -D <path to DSO>```` command on the new DSO generated output which is consistent with the other examples in C and C++. Specifically, the **"apache_init_soap_interface"** method is shown in the output, which was not the case earlier.
 
-![_config.yml]({{ site.baseurl }}/images/gSoap-module-in-Apache-server-1.png)
+![_config.yml]({{ site.baseurl }}/images/gSoap-C++-module-in-Apache-server-1.png)
 
 ![_config.yml]({{ site.baseurl }}/images/config.png)
 
@@ -57,4 +57,4 @@ LoadModule gsoap_module modules/mod_gsoap.so
  </Location>
 </IfModule>
 ````  
--Vimal Krishna  
+-Vimal Krishna
