@@ -1,9 +1,11 @@
 ---
 title: Gsoap c++ module in apache server
-date: 2017-12-29 00:00:00 +05:30
+date: {}
 published: false
 ---
 
 ## Installing a gSoap C++ module in Apache server
 
-Can this be saved as a draft ?
+The instructions at the [genivia website](https://www.genivia.com/doc/apache/html/index.html) just did not work.
+
+If you are not familiar with how to write a module for APache, this blog post will get you started on it. It takes you throught the steps of creating a C module and then a C++ module.
