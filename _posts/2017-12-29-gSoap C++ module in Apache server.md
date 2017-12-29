@@ -1,5 +1,5 @@
 ---
-title: Gsoap c++ module in apache server
+title: gSoap c++ module in Apache server
 date: '2017-12-29 15:26:00 +0530'
 published: false
 ---
