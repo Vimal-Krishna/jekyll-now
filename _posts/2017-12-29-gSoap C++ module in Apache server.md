@@ -24,4 +24,20 @@ The difference is in the symbols that the DSO exposes. Running nm -C -D calcsere
 
 There may well be some paramteres to apxs that I am not aware of currently, but it sure is creating some inconsistent behavior. 
 
-To solve the problem, we compiled the "C++ version" of the gSoap module separately as a DSO without using apxs. The command to do that is as follows:
+To solve the problem, we compiled the "C++ version" of the gSoap module separately as a DSO without using apxs. The command to do that is as follows:  
+g++ -shared -fpic calcserver.cpp soapC.cpp soapcalcService.cpp $HOME/gsoap-2.8/gsoap/stdsoap2.cpp  -I$HOME/gsoap-2.8/gsoap/mod_gsoap/mod_gsoap-0.9/apache_20 -I$HOME/apachegsoap/include -o .libs/calcserver.so
+
+After this, running the nm -C -D command on the new DSO generated output consistent with the other examples in C and C++.
+
+To load the module in Apache, the following lines were added in the httpd.conf file:
+LoadModule gsoap_module       modules/mod_gsoap.so
+<IfModule mod_gsoap.c>
+ <Location /soap>
+  SetHandler gsoap_handler
+  SOAPLibrary /<path>/apachegsoap/bar/.libs/calcserver.so
+  Order allow,deny
+  Allow from all
+ </Location>
+</IfModule>
+  
+-Vimal Krishna  
