@@ -18,18 +18,24 @@ chmod 755 .lib/calcserver.so
 
 There are no errors whatsoever, so it seems like the command worked and all is well.  
 However, when trying to make a soap API call to the installed service, Apache throws the following error:  
-gsoap: httpd.conf module mod_gsoap.c SOAPLibrary load "calcserver.so" success, but failed to find the "apache_init_soap_interface" function entry point defined by IMPLEMENT_GSOAP_SERVER()
+````bash
+gsoap: httpd.conf module mod_gsoap.c SOAPLibrary load "calcserver.so" success,  
+but failed to find the **"apache_init_soap_interface"** function entry point defined by  
+**IMPLEMENT_GSOAP_SERVER()**
+````
 
-On closer inspection and by comparison with the "C version" of the gSoap module for the same calulator example, we realized that the DSO (Dynamic Shared Object) created by apxs was different for the "C version" and the "C++ version" of the gSoap module.  
+On closer inspection and by comparison with the "C version" of the gSoap module for the same calulator example, we realized that the **DSO** (Dynamic Shared Object) created by apxs was different for the **"C version"** and the **"C++ version"** of the gSoap module.  
 
-The difference is in the symbols that the DSO exposes. Running nm -C -D calcserver.so on the C and C++ versions shows this difference. You may also try this command on the output created in the sample C++ module from the blog post referenced earlier.
+The difference is in the symbols that the DSO exposes. Running ````nm -C -D calcserver.so```` on the C and C++ versions shows this difference. You may also try this command on the output created in the sample C++ module from the blog post referenced earlier.
 
 There may well be some parameteres to apxs that I am not aware of currently, but it sure is creating some inconsistent behavior. 
 
-To solve the problem, we compiled the "C++ version" of the gSoap module separately as a DSO without using apxs. This is consistent with the C++ tutorial we went through. There was no need to use apxs there as well. The command to compile the gSoap service into a DSO is as follows:  
+To solve the problem, we compiled the "C++ version" of the gSoap module separately as a DSO without using apxs. This is consistent with the C++ tutorial we went through. There was no need to use apxs there as well. The command to compile the gSoap service into a DSO is as follows: 
+````bash
 g++ -shared -fpic calcserver.cpp soapC.cpp soapcalcService.cpp $HOME/gsoap-2.8/gsoap/stdsoap2.cpp  -I$HOME/gsoap-2.8/gsoap/mod_gsoap/mod_gsoap-0.9/apache_20 -I$HOME/apachegsoap/include -o .libs/calcserver.so
+````
 
-After this, running the nm -C -D command on the new DSO generated output which is consistent with the other examples in C and C++. Specifically, the "apache_init_soap_interface" method is shown in the output, which was not the case earlier.
+After this, running the ````nm -C -D <path to DSO>```` command on the new DSO generated output which is consistent with the other examples in C and C++. Specifically, the **"apache_init_soap_interface"** method is shown in the output, which was not the case earlier.
 
 //image
 
