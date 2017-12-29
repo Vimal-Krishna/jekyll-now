@@ -43,6 +43,8 @@ After this, running the ````nm -C -D <path to DSO>```` command on the new DSO ge
 
 ![_config.yml]({{ site.baseurl }}/images/gSoap-module-in-Apache-server-1.png)
 
+![_config.yml]({{ site.baseurl }}/images/config.png)
+
 To load the module in Apache, the following lines were added in the httpd.conf file:
 ````ApacheConf
 LoadModule gsoap_module modules/mod_gsoap.so
