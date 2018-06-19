@@ -9,8 +9,8 @@ collections:
     title: Uploads
     output: true
 name: Vimal.K.
-description: "**Software** Developer from **Somewhere**. That's right!"
-avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
+description: "Software Someone"
+avatar: /images/people.png
 footer-links:
   dribbble: 
   email: 
@@ -21,9 +21,9 @@ footer-links:
   linkedin: 
   pinterest: 
   rss: 
-  twitter: guitarvimal
+  twitter: v1malkr1shna
   stackoverflow: 
-  youtube: 
+  youtube: /user/datvichrox
   googleplus: 
 disqus: 
 google_analytics: 
