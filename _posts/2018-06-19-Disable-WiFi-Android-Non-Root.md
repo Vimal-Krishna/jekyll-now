@@ -7,8 +7,8 @@ published: true
 
 Learn how to restrict WiFi on Android phones using a password (No rooting required)
 
-This is a solution to disable access to WiFi on an Android device without requiring root privileges. Access to WiFi is controlled via password or secret patterns.
-We make use of applications available for free on the Play Store to achieve this - [AppLock](https://play.google.com/store/apps/details?id=com.domobile.applock&hl=en_IN) and [Automate](https://play.google.com/store/apps/details?id=com.llamalab.automate&hl=en).
+This is a solution to disable access to WiFi on an Android device without requiring root privileges. Access to the WiFi settings on the phone can be  controlled via password or secret patterns.
+We make use of applications that are available for free on the Play Store to achieve this - [AppLock](https://play.google.com/store/apps/details?id=com.domobile.applock&hl=en_IN) and [Automate](https://play.google.com/store/apps/details?id=com.llamalab.automate&hl=en).
 
 The first app we use is called [AppLock](https://play.google.com/store/apps/details?id=com.domobile.applock&hl=en_IN). This is an app which restricts access to any other installed app on the phone. The user will have to provide a **password** in order to gain access. 
 
@@ -22,7 +22,7 @@ We can successfully block access to the **Settings** screen of the Android OS us
 	<img align="center" src="/images/AppLock-Settings.png" width="300"/>
 </p>
 
-However, in my testing the **quick toggle tiles** are not blocked by this method (the ones which can be pulled down from the top of the screen). This is probably because it is not part of the Android Settings app.
+However, during my testing, I discovered the **quick toggle tiles** are not blocked by this method (the ones which can be pulled down from the top of the screen). This is probably because it is not part of the Android Settings app.
 
 <p align="center">
 	<img align="center" src="/images/Android-QuickTiles.png" width="300"/>
@@ -57,6 +57,6 @@ What if the apps AppLock and Automate were to be **uninstalled** by the user? Ye
 <img src="/images/Automate-Cant-Uninstall.png" width="300"/>
 </p>
 
-After setting up these apps in this way, WiFi is effectively disabled unless the user opens Automate (via AppLock password) and stops the workflow that turns the WiFi off. Otherwise, every other action that causes the WiFi state to move to Enabled, would trigger the Automate workflow which moves the WiFi state back to Disabled.
+After setting up these apps in this way, WiFi is effectively disabled unless the user opens Automate (via AppLock password) and stops the workflow that turns the WiFi off. Otherwise, every other action that causes the WiFi to turn **ON**, would trigger the Automate workflow which will turn the WiFi back **OFF**.
 
 -Vimal Krishna
