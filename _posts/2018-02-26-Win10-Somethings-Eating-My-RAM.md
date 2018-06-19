@@ -14,7 +14,7 @@ I discovered that the RAM usage on my Windows 10 Thinkpad laptop has been consta
 I discoverd this only because the cooling fan was constantly running at high speed, and sometimes resource hungry applications like Visual Studio would take a long time to load.
 
 I did figure out what was causing the RAM usage though. It is a certain driver that has been installed on my office laptop. 
-As seen in the screenshot, under the **'driver locked'** category of RAM usage, there is a whopping **12GB of RAM! **
+As seen in the screenshot, under the **'driver locked'** category of RAM usage, there is a whopping **12GB of RAM!**
 
 ![_config.yml]({{ site.baseurl }}/images/Win10-RAM-Usage-2018-02-26-17_52_24.png)
 
